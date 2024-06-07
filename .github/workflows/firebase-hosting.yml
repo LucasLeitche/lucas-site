@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting
 on:
   push:
     branches:
-      - main # Mude para o nome da sua branch principal, se for diferente
+      - main 
   workflow_dispatch:
 
 jobs:
@@ -15,13 +15,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16' # ou a versão do Node.js que você está usando
-
+          node-version: '18' 
       - name: Install dependencies
         run: npm install
       
       - name: Build project
-        run: npm run build # ou o comando específico para buildar seu projeto Nuxt.js
+        run: npm run build
 
       - name: Install Firebase Tools
         run: npm install -g firebase-tools
