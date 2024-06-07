@@ -15,11 +15,6 @@ jobs:
       - name: Install Firebase Tools
         run: npm install -g firebase-tools
       
-      - name: Authenticate Firebase
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: firebase auth:ci
-      
       - name: Deploy to Firebase
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
