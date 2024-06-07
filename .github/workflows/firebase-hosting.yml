@@ -11,18 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
+      
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: '16' # ou a versão do Node.js que você está usando
 
-      -name: Intall dependencies
+      - name: Install dependencies
         run: npm install
-
-      -name: Build project
-        run: npm run build
       
+      - name: Build project
+        run: npm run build # ou o comando específico para buildar seu projeto Nuxt.js
+
       - name: Install Firebase Tools
         run: npm install -g firebase-tools
       
