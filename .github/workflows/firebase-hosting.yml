@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -19,4 +20,3 @@ jobs:
 
       - name: Deploy to Firebase
         run: firebase deploy --only hosting
-        
