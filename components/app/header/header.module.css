@@ -1,0 +1,3 @@
+.active{
+  @apply text-accent underline underline-offset-8 md:underline-offset-[15px];
+}

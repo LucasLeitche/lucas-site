@@ -1,0 +1,34 @@
+[
+  {
+    "num": "01",
+    "title": "Web Development",
+    "description": {
+      "en": "lorem ipsum dolor sit amet consecteur adipsing elit. Equa tener",
+      "pt": ""
+    }
+  },
+  {
+    "num": "02",
+    "title": "Back-end Development",
+    "description": {
+      "en": "lorem ipsum dolor sit amet consecteur adipsing elit. Equa tener",
+      "pt": ""
+    }
+  },
+  {
+    "num": "03",
+    "title": "Game Development",
+    "description": {
+      "en": "lorem ipsum dolor sit amet consecteur adipsing elit. Equa tener",
+      "pt": ""
+    }
+  },
+  {
+    "num": "04",
+    "title": "SEO",
+    "description": {
+      "en": "lorem ipsum dolor sit amet consecteur adipsing elit. Equa tener",
+      "pt": ""
+    }
+  }
+]

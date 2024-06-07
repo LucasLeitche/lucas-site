@@ -2,32 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+:root{
+  --accent: #00ff99
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply font-primary bg-primary text-white leading-loose;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px white; /* Contorno preto de 1px */
+  text-stroke: 1px white; /* Para compatibilidade adicional */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.text-outline-hover{
+  -webkit-text-stroke: 1px var(--accent)!important; /* Contorno preto de 1px */
+  color: transparent;
+  text-stroke: 1px  var(--accent)!important; /* Para compatibilidade adicional */
 }
