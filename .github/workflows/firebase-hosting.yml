@@ -7,10 +7,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      -name: Intall dependencies
+        run: npm install
+
+      -name: Build project
+        run: npm run build
       
       - name: Install Firebase Tools
         run: npm install -g firebase-tools
