@@ -12,34 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache Primes
-        id: cache-primes
-        uses: actions/cache@v2
-        with:
-          path: prime-numbers
-          key: ${{ runner.os }}-primes
-
-      - name: Generate Prime Numbers
-        if: steps.cache-primes.outputs.cache-hit != 'true'
-        run: ./generate-primes.sh -d prime-numbers
-
-      - name: Use Prime Numbers
-        run: ./primes.sh -d prime-numbers
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18'
-
+      
       - name: Install dependencies
         run: npm install
-
+      
       - name: Build project
         run: npm run build
 
       - name: Install Firebase Tools
         run: npm install -g firebase-tools
-
+      
       - name: Deploy to Firebase
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
