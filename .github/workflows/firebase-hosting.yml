@@ -11,6 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Cache Primes
+        id: chache-prime
+        uses: actions/chache@v4
+        with:
+          path: prime-numbers
+          key: ${{ runners.os }}-primes
+
+      - name: Genrate Prime Numbers
+        if: steps.cache-primes.outputs.cache-hit != 'true' 
+        run: /generate-primes.sh -d prime-numbers
+
+      - name: Use Prime Numbers
+        run: /primes.sh -d prime-numbers
       
       - name: Set up Node.js
         uses: actions/setup-node@v2
