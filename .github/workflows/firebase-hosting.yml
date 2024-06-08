@@ -11,20 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      steps:
-      - restore_cache:
-          keys:
-            # Find a cache corresponding to this specific package-lock.json checksum
-            # when this file is changed, this key will fail
-            - v1-npm-deps-{{ checksum "package-lock.json" }}
-            # Find the most recently generated cache used from any branch
-            - v1-npm-deps-
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
       
       - name: Install dependencies
         run: npm install
