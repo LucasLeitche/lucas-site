@@ -1,7 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import photo from "../public/assets/photo.png";
+import photo from "../public/assets/IMG_4515 2.png";
 
 export function Photo() {
   return (
@@ -28,11 +28,12 @@ export function Photo() {
               overflow-hidden rounded-full absolute"
           >
             <Image
-              src="/assets/IMG_4515 2.jpg"
+              src={photo}
               priority
               quality={100}
               fill
-              alt=""
+              alt="Profile picture"
+              title="Profile picture"
               className="object-cover w-full h-full"
             />
           </div>
