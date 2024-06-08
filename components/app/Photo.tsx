@@ -1,8 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import photo from "../public/assets/IMG_4515 2.png";
-
+import photo from '../../public/assets/IMG_4515 2.jpg'
 export function Photo() {
   return (
     <div className="h-full relative">
