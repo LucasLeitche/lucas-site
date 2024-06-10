@@ -1,5 +1,5 @@
-import { apiService } from "../../../services/apiService";
-import { GitHubService } from "../../../services/github.service";
+import { apiService } from "@/services/apiService";
+import { GitHubService } from "@/services/github.service";
 import { Counter } from "./Counter";
 
 const ghService = new GitHubService(apiService);
