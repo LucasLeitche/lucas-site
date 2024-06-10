@@ -4,11 +4,15 @@ import style from "./header.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import content from './utils/header-content.json';
+import { LanguageController } from "@/controller/languageController";
 
 import { Button } from "../../ui/button";
 import { CiMenuFries, CiSquareRemove } from "react-icons/ci";
-import Logo from "../Logo";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "../Logo";
+
+const language = new LanguageController()
 
 export default function NavApp() {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -25,27 +29,27 @@ export default function NavApp() {
   const currentPath = usePathname();
   const menuList = [
     {
-      label:"Home",
+      label: content[language.chosedLanguage][0],
       path: "/",
       isCurrentPath: currentPath === "/",
     },
     {
-      label:"Services",
+      label: content[language.chosedLanguage][1],
       path: "services",
       isCurrentPath: currentPath === "/services",
     },
     {
-      label:"Resume",
+      label: content[language.chosedLanguage][2],
       path: "resume",
       isCurrentPath: currentPath === "/resume",
     },
     {
-      label:"Work",
+      label: content[language.chosedLanguage][3],
       path: "work",
       isCurrentPath: currentPath === "/work",
     },
     {
-      label:"Contact",
+      label: content[language.chosedLanguage][4],
       path: "contact",
       isCurrentPath: currentPath === "/contact",
     },
@@ -66,7 +70,7 @@ export default function NavApp() {
         ))}
 
         <Button className="bg-accent rounded-3xl text-primary px-6 hover:bg-accent-hover transition-colors">
-          Hire me
+          {content[language.chosedLanguage][5]}
         </Button>
       </nav>
 
@@ -128,7 +132,7 @@ export default function NavApp() {
                     </Link>
                   ))}
                   <Button className="bg-accent hover:bg-accent-hover transition-colors rounded-3xl text-primary px-6 text-lg">
-                    Hire me
+                    {content[language.chosedLanguage][5]}
                   </Button>
                 </nav>
               </motion.div>
