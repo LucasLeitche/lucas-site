@@ -20,21 +20,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-    steps:
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Dependencies
-          command: yarn install --immutable
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - .yarn/cache
+      - name: Restore Yarn Package Cache
+        uses: actions/cache@v2
+        with:
+          path: .yarn/cache
+          key: yarn-packages-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            yarn-packages-
 
+      - name: Install Dependencies
+        run: yarn install --immutable
 
+      - name: Save Yarn Package Cache
+        uses: actions/cache@v2
+        with:
+          path: .yarn/cache
+          key: yarn-packages-${{ hashFiles('yarn.lock') }}
+        
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
