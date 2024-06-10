@@ -12,27 +12,28 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-       - name: Cache node modules
+      - name: Cache node modules
         uses: actions/cache@v2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18' 
+          node-version: '18'
+
       - name: Install dependencies
         run: npm install
-      
+
       - name: Build project
         run: npm run build
 
       - name: Install Firebase Tools
         run: npm install -g firebase-tools
-      
+
       - name: Deploy to Firebase
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
