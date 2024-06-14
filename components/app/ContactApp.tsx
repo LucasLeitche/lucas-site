@@ -18,7 +18,7 @@ export default function ContactApp() {
   return (
     <div className="flex flex-col lg:flex-row gap-8">
       <div className="bg-[#27272C] w-full lg:w-[65%] p-5 lg:p-10 rounded-md order-2 lg:order-none">
-        <h2 className="text-accent text-xl lg:text-3xl">Let's work together</h2>
+        <h2 className="text-accent text-xl lg:text-3xl">{`Let's`} work together</h2>
         <span className="text-white/70">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
           consequatur quas maiores. Numquam qui voluptatem molestiae optio id,
