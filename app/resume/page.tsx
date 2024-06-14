@@ -1,7 +1,10 @@
 "use client";
-
-import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs } from "react-icons/fa";
+import { ResumeApp } from "@/components/app/Resume";
 
 export default function Resume() {
-  return <main className="container"></main>;
+  return (
+    <main className="container lg:px-24">
+      <ResumeApp/>
+    </main>
+  );
 }

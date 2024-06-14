@@ -1,3 +1,4 @@
+"use client";
 import { HomeApp } from "@/components/app/Home";
 export default function Home() {
   return (

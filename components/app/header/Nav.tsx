@@ -2,16 +2,24 @@
 
 import style from "./header.module.css";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { Button } from "../../ui/button";
 import { CiMenuFries, CiSquareRemove } from "react-icons/ci";
-import Logo from "../Logo";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "../Logo";
+import ToggleButton from "../Toggle";
+
+import content from "@/utils/content.json";
+import { LanguageEnum, LanguageType } from "@/utils/language-type";
 
 export default function NavApp() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const search = useSearchParams();
+  const [lang, setLang] = useState<LanguageType>(
+    (search.get("lang") as LanguageType) || LanguageEnum.english
+  );
 
   function toggleMenu(): void {
     setMenuOpen(!isMenuOpen);
@@ -25,60 +33,93 @@ export default function NavApp() {
   const currentPath = usePathname();
   const menuList = [
     {
-      label:"Home",
+      label: content.nav[lang][0],
       path: "/",
       isCurrentPath: currentPath === "/",
     },
     {
-      label:"Services",
+      label: content.nav[lang][1],
       path: "services",
       isCurrentPath: currentPath === "/services",
     },
     {
-      label:"Resume",
+      label: content.nav[lang][2],
       path: "resume",
       isCurrentPath: currentPath === "/resume",
     },
     {
-      label:"Work",
+      label: content.nav[lang][3],
       path: "work",
       isCurrentPath: currentPath === "/work",
     },
     {
-      label:"Contact",
+      label: content.nav[lang][4],
       path: "contact",
       isCurrentPath: currentPath === "/contact",
     },
   ];
 
+  const updateLanguage = () => {
+    const langStoraged = localStorage.getItem("lang");
+    if (langStoraged === LanguageEnum.english) {
+      setLang(LanguageEnum.english);
+      localStorage.setItem("lang", LanguageEnum.english);
+    } else {
+      setLang(LanguageEnum.portuguese);
+      localStorage.setItem("lang", LanguageEnum.portuguese);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("languageChanged", updateLanguage);
+
+    const langStoraged = localStorage.getItem("lang");
+
+    if (langStoraged === LanguageEnum.english) {
+      console.log("teste");
+      setLang(LanguageEnum.english);
+    } else {
+      setLang(LanguageEnum.portuguese);
+    }
+
+    return () => {
+      window.removeEventListener("languageChanged", updateLanguage);
+    };
+  }, []);
+
   return (
     <>
       {/* Desktop nav */}
-      <nav className="hidden md:flex gap-10 md:items-center">
+      <nav className="hidden lg:flex gap-10 md:items-center">
         {menuList.map((item, index) => (
           <Link
             key={index}
-            className={`hover:text-accent-hover transition-all duration-500 ${item.isCurrentPath ? style.active : ""}`}
+            className={`hover:text-accent-hover transition-all duration-500 ${
+              item.isCurrentPath ? style.active : ""
+            }`}
             href={item.path}
           >
             {item.label}
           </Link>
         ))}
-
+        <ToggleButton />
         <Button className="bg-accent rounded-3xl text-primary px-6 hover:bg-accent-hover transition-colors">
-          Hire me
+          {content.nav[lang][5]}
         </Button>
       </nav>
 
       {/* Mobile nav */}
 
-      <div className="block md:hidden">
-        <Button
-          className="bg-transparent hover:bg-transparent"
-          onClick={toggleMenu}
-        >
-          <CiMenuFries className="text-accent font-bold text-3xl" />
-        </Button>
+      <div className="block lg:hidden">
+        <div className="flex items-center">
+          <ToggleButton />
+          <Button
+            className="bg-transparent hover:bg-transparent"
+            onClick={toggleMenu}
+          >
+            <CiMenuFries className="text-accent font-bold text-3xl" />
+          </Button>
+        </div>
         <AnimatePresence>
           {isMenuOpen ? (
             <>
@@ -128,7 +169,7 @@ export default function NavApp() {
                     </Link>
                   ))}
                   <Button className="bg-accent hover:bg-accent-hover transition-colors rounded-3xl text-primary px-6 text-lg">
-                    Hire me
+                    {content.nav[lang][5]}
                   </Button>
                 </nav>
               </motion.div>
