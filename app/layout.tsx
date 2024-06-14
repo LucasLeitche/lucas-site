@@ -19,12 +19,12 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactElement;
 }>) {
   return (
     <html lang="en">
       <body className={jetBrainsMono.variable}>
-        <StairTransition/>
+        <StairTransition />
         <HeaderApp />
         <PageTransition>{children}</PageTransition>
       </body>
