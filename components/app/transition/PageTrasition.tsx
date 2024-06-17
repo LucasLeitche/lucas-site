@@ -2,7 +2,7 @@
 
 import { LanguageEnum, LanguageType } from "@/utils/language-type";
 import { AnimatePresence, motion } from "framer-motion";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { createContext, useEffect, useState } from "react";
 
 export const LangContext = createContext<LanguageType>(LanguageEnum.english);
