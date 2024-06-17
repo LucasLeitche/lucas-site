@@ -2,7 +2,7 @@
 
 import style from "./header.module.css";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Button } from "../../ui/button";
@@ -16,10 +16,7 @@ import { LanguageEnum, LanguageType } from "@/utils/language-type";
 
 export default function NavApp() {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const search = useSearchParams();
-  const [lang, setLang] = useState<LanguageType>(
-    (search.get("lang") as LanguageType) || LanguageEnum.english
-  );
+  const [lang, setLang] = useState<LanguageType>(LanguageEnum.english);
 
   function toggleMenu(): void {
     setMenuOpen(!isMenuOpen);
@@ -76,7 +73,6 @@ export default function NavApp() {
     const langStoraged = localStorage.getItem("lang");
 
     if (langStoraged === LanguageEnum.english) {
-      console.log("teste");
       setLang(LanguageEnum.english);
     } else {
       setLang(LanguageEnum.portuguese);
