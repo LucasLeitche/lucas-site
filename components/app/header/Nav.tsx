@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../Logo";
 import ToggleButton from "../Toggle";
 
-import content from "@/utils/content.json";
+import content from "@/utils/content";
 import { LanguageEnum, LanguageType } from "@/utils/language-type";
 
 export default function NavApp() {
