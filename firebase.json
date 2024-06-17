@@ -11,18 +11,6 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ],
-    "redirects": [
-      {
-        "source": "/",
-        "destination": "https://lucasleite.online",
-        "type": 301
-      },
-      {
-        "source": "/:any",
-        "destination": "https://lucasleite.online/:any",
-        "type": 301
-      }
     ]
   }
 }
