@@ -20,7 +20,7 @@ import {
   TooltipTrigger,
 } from "../ui/tooltip";
 import { LangContext } from "./transition/PageTrasition";
-import content from "@/utils/content.json";
+import content from "@/utils/content";
 
 export function ResumeApp() {
   const [chosedIndex, setChosedIndex] = useState(0);
@@ -88,7 +88,7 @@ export function ResumeApp() {
                     <li>{item.company}</li>
                   </ul>
                 </div>
-              )) as []
+              ))
             }
           </div>
         </>
@@ -115,7 +115,7 @@ export function ResumeApp() {
                   <span className="text-accent text-sm">{item.period}</span>
                   <strong className="text-lg lg:text-xl">{item.course}</strong>
                   <ul className="list list-disc text-white/70 marker:text-accent pl-5 ">
-                    <li>{item.scholl}</li>
+                    <li>{item.school}</li>
                   </ul>
                 </div>
               )) as []

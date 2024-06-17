@@ -24,7 +24,7 @@ import notabrasil from "@/public/assets/notabrasil.png";
 import eludico from "@/public/assets/eludico.png";
 import lucas from "@/public/assets/lucas.png";
 
-import content from "@/utils/content.json";
+import content from "@/utils/content";
 import { LangContext } from "./transition/PageTrasition";
 
 export function WorkApp() {

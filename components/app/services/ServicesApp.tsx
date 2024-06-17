@@ -4,7 +4,7 @@ import { BsArrowDownRight } from "react-icons/bs";
 import { useContext, useState } from "react";
 import { LanguageType } from "@/utils/language-type";
 import { LangContext } from "../transition/PageTrasition";
-import content from "@/utils/content.json";
+import content from "@/utils/content";
 
 export function ServicesApp() {
   const [isHovered, setIsHovered] = useState(false);

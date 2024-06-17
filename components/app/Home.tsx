@@ -6,7 +6,7 @@ import { Photo } from "./Photo";
 import { InfoBar } from "./Inforbar";
 import { useContext, useState } from "react";
 import { LangContext } from "./transition/PageTrasition";
-import content from "@/utils/content.json";
+import content from "@/utils/content";
 import { LanguageType } from "@/utils/language-type";
 import { CvModal } from "../CvModal";
 
