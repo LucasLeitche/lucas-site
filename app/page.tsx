@@ -1,9 +1,11 @@
 "use client";
-import { HomeApp } from "@/components/app/Home";
+import { InfoBar } from "@/components/app/Inforbar";
+import { Presentation } from "@/components/app/Presentation";
 export default function Home() {
   return (
     <main className="container lg:px-24">
-      <HomeApp />
+      <Presentation />
+      <InfoBar />
     </main>
   );
 }

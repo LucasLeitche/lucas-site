@@ -34,7 +34,7 @@ export function InfoBar() {
         >
           <strong className="font-bold text-2xl lg:text-4xl">
             <span className="pr-1">
-            {item.label === "Code commits" || item.label === "Pull requests"
+            {item.label[0] === "C" || item.label === "Pull requests"
               ? "+"
               : ""}
             </span>

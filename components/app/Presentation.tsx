@@ -11,7 +11,7 @@ import { LanguageType } from "@/utils/language-type";
 import { CvModal } from "../CvModal";
 
 /* eslint-disable react/no-unescaped-entities */
-export function HomeApp() {
+export function Presentation() {
   const lang = useContext<LanguageType>(LangContext);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -54,7 +54,6 @@ export function HomeApp() {
           <Photo />
         </div>
       </div>
-      <InfoBar />
       {isOpen && <CvModal close={close} chosed={downloadCv}/>}
     </div>
   );
